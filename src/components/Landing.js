@@ -16,38 +16,12 @@ import OutputDetails from "./OutputDetails";
 import ThemeDropdown from "./ThemeDropdown";
 import LanguagesDropdown from "./LanguagesDropdown";
 // eslint-disable-next-line
-const javascriptDefault = `/**
-* Problem: Binary Search: Search a sorted array for a target value.
-*/
-
-// Time: O(log n)
-const binarySearch = (arr, target) => {
- return binarySearchHelper(arr, target, 0, arr.length - 1);
-};
-
-const binarySearchHelper = (arr, target, start, end) => {
- if (start > end) {
-   return false;
- }
- let mid = Math.floor((start + end) / 2);
- if (arr[mid] === target) {
-   return mid;
- }
- if (arr[mid] < target) {
-   return binarySearchHelper(arr, target, mid + 1, end);
- }
- if (arr[mid] > target) {
-   return binarySearchHelper(arr, target, start, mid - 1);
- }
-};
-
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const target = 5;
-console.log(binarySearch(arr, target));
+const python_default = `name = input('Enter Your Name:- ')
+print(name)
 `;
 
 const Landing = () => {
-  const [code, setCode] = useState(javascriptDefault);
+  const [code, setCode] = useState(python_default);
   const [customInput, setCustomInput] = useState("");
   const [outputDetails, setOutputDetails] = useState(null);
   const [processing, setProcessing] = useState(null);
@@ -61,6 +35,7 @@ const Landing = () => {
     console.log("selected Option...", sl);
     setLanguage(sl);
   };
+  // console.log("onSelectChange",onSelectChange);
 
   useEffect(() => {
     if (enterPress && ctrlPress) {
@@ -100,15 +75,17 @@ const Landing = () => {
       },
       data: formData,
     };
+    console.log(options)
 
     axios
       .request(options)
       .then(function (response) {
-        console.log("res.data", response.data);
+        console.log("res.data", response);
         const token = response.data.token;
         checkStatus(token);
       })
       .catch((err) => {
+        console.log("err",err);
         let error = err.response ? err.response.data : err;
         // get error status
         let status = err.response.status;
