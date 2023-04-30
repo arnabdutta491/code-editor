@@ -1,8 +1,5 @@
 {
-  "name":"ad-code-editor",
   "homepage":"https://github.com/arnabdutta491/code-editor",
-
-  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@monaco-editor/react": "^4.4.4",
