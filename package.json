@@ -1,5 +1,5 @@
 {
-  "homepage":"https://github.com/arnabdutta491/code-editor",
+  "homepage":"https://code-editor-nu-one.vercel.app",
   "private": true,
   "dependencies": {
     "@monaco-editor/react": "^4.4.4",
